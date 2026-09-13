@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Paragon Alliance — Policies &amp; Statement of Intent</title>
+<meta name="description" content="School project. A fictional New Zealand political party with two policies: the Paragon Tier for the economy, and Sponsored Housing Districts for housing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F1F2ED;
+  --paper-2:#E4E7DE;
+  --ink:#13201C;
+  --ink-2:#525F58;
+  --ink-3:#7C8880;
+  --rule:#C5CBBF;
+  --hold:#1D6B54;
+  --drop:#9B3126;
+  --new:#2C5578;
+  --board:#13201C;
+  --board-rule:#2C3B35;
+  --board-ink:#DCE2D9;
+  --board-dim:#8A968D;
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:17px;
+  line-height:1.65;
+  font-variant-numeric:tabular-nums;
+}
+h1,h2,h3,h4,.sans{font-family:Archivo,"Helvetica Neue",Arial,sans-serif}
+a{color:inherit}
+[v-cloak]{visibility:hidden}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* ---------- masthead ---------- */
+.top{
+  position:sticky;top:0;z-index:40;
+  background:rgba(241,242,237,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.top .wrap{display:flex;align-items:center;gap:24px;height:58px}
+.brand{
+  font-family:Archivo,sans-serif;
+  font-variation-settings:"wdth" 118;
+  font-weight:700;font-size:15px;letter-spacing:.01em;
+  text-decoration:none;white-space:nowrap;
+}
+.brand .a{color:var(--hold)}
+.topnav{margin-left:auto;display:flex;gap:22px;font-family:Archivo,sans-serif;font-size:14px}
+.topnav a{text-decoration:none;color:var(--ink-2);padding:4px 0;border-bottom:2px solid transparent}
+.topnav a:hover,.topnav a:focus-visible{color:var(--ink);border-bottom-color:var(--hold)}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 0}
+.kicker{
+  font-family:Archivo,sans-serif;font-size:13px;color:var(--ink-2);
+  margin:0 0 20px;padding-bottom:10px;border-bottom:1px solid var(--rule);
+  display:flex;flex-wrap:wrap;gap:6px 18px;
+}
+h1{
+  font-variation-settings:"wdth" 112;
+  font-weight:600;
+  font-size:clamp(2.3rem,6.4vw,4.15rem);
+  line-height:1.02;
+  letter-spacing:-.018em;
+  margin:0 0 26px;
+  max-width:15ch;
+}
+.standfirst{font-size:1.18rem;max-width:60ch;color:var(--ink-2);margin:0 0 10px}
+.standfirst strong{color:var(--ink);font-weight:600}
+
+/* ---------- tier board ---------- */
+.board{
+  background:var(--board);color:var(--board-ink);
+  margin:44px 0 0;padding:26px 26px 30px;
+}
+.board-head{display:flex;flex-wrap:wrap;align-items:flex-end;gap:18px;padding-bottom:18px;border-bottom:1px solid var(--board-rule)}
+.board-title{font-family:Archivo,sans-serif;font-variation-settings:"wdth" 108;font-weight:600;font-size:1.3rem;margin:0}
+.board-sub{font-size:.92rem;color:var(--board-dim);margin:6px 0 0;max-width:46ch}
+.cycle{margin-left:auto;text-align:right;display:flex;align-items:center;gap:14px}
+.cycle-year{font-family:Archivo,sans-serif;font-size:2.1rem;font-weight:700;font-variation-settings:"wdth" 92;line-height:1}
+.cycle-label{font-family:Archivo,sans-serif;font-size:12px;color:var(--board-dim);display:block;margin-top:2px}
+.btn{
+  font-family:Archivo,sans-serif;font-size:14px;font-weight:600;
+  background:var(--hold);color:#fff;border:0;padding:11px 18px;cursor:pointer;
+}
+.btn:hover{background:#24836a}
+.btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.btn.ghost{background:transparent;color:var(--board-dim);border:1px solid var(--board-rule)}
+.btn.ghost:hover{color:var(--board-ink);border-color:var(--board-ink)}
+.btn[disabled]{opacity:.4;cursor:default}
+
+table.tier{width:100%;border-collapse:collapse;margin-top:6px}
+table.tier th{
+  font-family:Archivo,sans-serif;font-size:12px;font-weight:500;color:var(--board-dim);
+  text-align:left;padding:14px 10px 8px;font-variation-settings:"wdth" 96;
+}
+table.tier th.num,table.tier td.num{text-align:right}
+table.tier td{padding:11px 10px;border-top:1px solid var(--board-rule);vertical-align:middle}
+.firm{font-family:Archivo,sans-serif;font-size:15px;font-weight:500}
+.firm small{display:block;color:var(--board-dim);font-size:12px;font-weight:400}
+.bar{position:relative;height:7px;background:#22302A;width:74px}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:#5E7F72;transition:width .5s ease}
+.bar.up i{background:#3FA184}
+.bar.down i{background:#B05446}
+.score{font-family:Archivo,sans-serif;font-weight:700;font-size:1.05rem}
+.delta{font-size:12px;font-family:Archivo,sans-serif;color:var(--board-dim);margin-left:6px}
+.delta.up{color:#3FA184}
+.delta.down{color:#D4705F}
+.status{
+  font-family:Archivo,sans-serif;font-size:12px;font-weight:600;
+  padding:4px 9px;white-space:nowrap;display:inline-block;
+}
+.s-hold{background:rgba(63,161,132,.16);color:#6FC0A6}
+.s-in{background:rgba(88,150,206,.18);color:#8FBDE6}
+.s-out{background:rgba(176,84,70,.18);color:#E0907F}
+.s-none{color:var(--board-dim)}
+tr.dropped .firm{color:var(--board-dim)}
+.board-foot{margin-top:18px;font-size:.86rem;color:var(--board-dim);max-width:64ch}
+.cards{display:none}
+
+/* ---------- policy sections ---------- */
+.policy{padding:96px 0 0}
+.policy-head{border-top:2px solid var(--ink);padding-top:14px;margin-bottom:52px}
+.policy-index{font-family:Archivo,sans-serif;font-size:13px;color:var(--ink-2);margin:0 0 22px}
+h2{
+  font-variation-settings:"wdth" 108;font-weight:600;
+  font-size:clamp(1.85rem,4.1vw,2.9rem);line-height:1.08;letter-spacing:-.015em;
+  margin:0 0 14px;max-width:22ch;
+}
+.policy-lede{font-size:1.1rem;color:var(--ink-2);max-width:58ch;margin:0}
+
+.row{display:grid;grid-template-columns:9.5rem 1fr;gap:0 34px;border-top:1px solid var(--rule);padding:26px 0}
+.row:last-of-type{border-bottom:1px solid var(--rule)}
+.row-label{font-family:Archivo,sans-serif;font-size:13px;color:var(--ink-2);line-height:1.4;padding-top:4px}
+.row-body{max-width:66ch}
+.row-body p{margin:0 0 1em}
+.row-body p:last-child{margin-bottom:0}
+
+/* pull-out figures */
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:0;margin:26px 0 0;border-top:1px solid var(--ink)}
+.fig{padding:16px 18px 18px 0;border-right:1px solid var(--rule)}
+.fig:last-child{border-right:0}
+.fig b{display:block;font-family:Archivo,sans-serif;font-weight:700;font-size:1.75rem;font-variation-settings:"wdth" 92;line-height:1.1}
+.fig span{display:block;font-size:.88rem;color:var(--ink-2);margin-top:5px;max-width:24ch}
+.fig a{color:var(--ink-3);font-size:.78rem;font-family:Archivo,sans-serif;text-decoration:none;border-bottom:1px solid var(--rule)}
+.fig a:hover{color:var(--hold);border-bottom-color:var(--hold)}
+
+/* mechanism list — four measures */
+.measures{list-style:none;padding:0;margin:18px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--rule)}
+.measures li{background:var(--paper);padding:16px 18px}
+.measures b{font-family:Archivo,sans-serif;font-size:15px;display:block;margin-bottom:4px}
+.measures span{font-size:.92rem;color:var(--ink-2)}
+
+/* risk / mitigation pairs */
+.risks{margin:20px 0 0;border-top:1px solid var(--rule)}
+.risk{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.risk-h{font-family:Archivo,sans-serif;font-size:12px;color:var(--drop);margin:0 0 5px}
+.risk-m .risk-h{color:var(--hold)}
+.risk p{margin:0;font-size:.98rem}
+
+/* district widget */
+.district{background:var(--paper-2);padding:26px;margin:26px 0 0}
+.district-head{display:flex;flex-wrap:wrap;gap:16px;align-items:baseline}
+.district h4{margin:0;font-size:1.05rem;font-variation-settings:"wdth" 106;font-weight:600}
+.controls{margin-left:auto;display:flex;flex-wrap:wrap;align-items:center;gap:16px;font-family:Archivo,sans-serif;font-size:13px}
+input[type=range]{accent-color:var(--hold);width:150px}
+.seg{display:flex;border:1px solid var(--rule)}
+.seg button{font-family:Archivo,sans-serif;font-size:13px;background:transparent;border:0;padding:7px 12px;cursor:pointer;color:var(--ink-2)}
+.seg button.on{background:var(--ink);color:var(--paper)}
+.plots{display:grid;grid-template-columns:repeat(15,1fr);gap:4px;margin:22px 0 14px}
+.plot{aspect-ratio:1;background:#CDD4C7;transition:background .35s ease}
+.plot.aff{background:var(--hold)}
+.legend{display:flex;flex-wrap:wrap;gap:18px;font-size:.88rem;color:var(--ink-2);font-family:Archivo,sans-serif}
+.legend i{display:inline-block;width:11px;height:11px;background:#CDD4C7;margin-right:7px;vertical-align:-1px}
+.legend i.aff{background:var(--hold)}
+.verdict{margin:14px 0 0;font-size:.95rem;max-width:62ch}
+
+/* conclusion */
+.conclusion{border-top:2px solid var(--ink);margin-top:64px;padding-top:26px}
+.conclusion p{max-width:62ch;font-size:1.06rem}
+
+/* sources */
+.sources{padding:96px 0 0}
+ol.refs{list-style:none;counter-reset:r;padding:0;margin:26px 0 0;border-top:1px solid var(--rule)}
+ol.refs li{counter-increment:r;display:grid;grid-template-columns:2.6rem 1fr;gap:16px;padding:15px 0;border-bottom:1px solid var(--rule)}
+ol.refs li::before{content:counter(r);font-family:Archivo,sans-serif;font-size:13px;color:var(--ink-3);padding-top:3px}
+ol.refs a{font-family:Archivo,sans-serif;font-size:15px;text-decoration:none;border-bottom:1px solid var(--rule)}
+ol.refs a:hover{color:var(--hold);border-bottom-color:var(--hold)}
+ol.refs span{display:block;font-size:.9rem;color:var(--ink-2);margin-top:4px;max-width:70ch}
+
+footer{margin-top:80px;border-top:1px solid var(--rule);padding:26px 0 60px;font-size:.86rem;color:var(--ink-2)}
+footer p{max-width:64ch;margin:0 0 .6em}
+
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+  .row{grid-template-columns:1fr;gap:8px}
+  .row-label{padding-top:0;color:var(--ink-3)}
+  .risk{grid-template-columns:1fr;gap:10px}
+  .plots{grid-template-columns:repeat(10,1fr)}
+  .fig{border-right:0;border-bottom:1px solid var(--rule)}
+  .figs{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .hero{padding-top:44px}
+  .topnav{gap:14px;font-size:13px}
+  .board{padding:20px 18px 24px;margin-left:-24px;margin-right:-24px}
+  table.tier{display:none}
+  .cards{display:block}
+  .card{border-top:1px solid var(--board-rule);padding:14px 0}
+  .card-top{display:flex;align-items:baseline;gap:10px}
+  .card-top .firm{flex:1}
+  .card-measures{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin-top:10px}
+  .card-measures div{display:flex;align-items:center;gap:8px;font-size:12px;font-family:Archivo,sans-serif;color:var(--board-dim)}
+  .card-measures .bar{width:52px;margin-left:auto}
+  .cycle{margin-left:0;text-align:left;width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+@media print{
+  .top,.board,.district,.btn{display:none}
+  body{background:#fff;font-size:11pt}
+  .policy{padding-top:28px;page-break-before:always}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">THE PARAGON <span class="a">ALLIANCE</span></a>
+    <nav class="topnav">
+      <a href="#economy">Economy</a>
+      <a href="#housing">Housing</a>
+      <a href="#sources">Sources</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ====================== HERO ====================== -->
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker"><span>Policies &amp; statement of intent</span><span>Aotearoa New Zealand</span><span>Two policies: economy, housing</span></p>
+    <h1>Support should follow performance, not reputation.</h1>
+    <p class="standfirst">New Zealand hands out grants, subsidies, contracts and tax breaks, and then stops paying attention. We think every form of public support should have to be <strong>earned again</strong> — on published numbers, on a fixed cycle, with removal as a real outcome.</p>
+
+    <!-- Interactive: the tier board -->
+    <div id="board-app" class="board" v-cloak>
+      <div class="board-head">
+        <div>
+          <h2 class="board-title">The Paragon Tier register</h2>
+          <p class="board-sub">Every member is re-scored every two years. Press the button to run the next cycle and watch who holds their place.</p>
+        </div>
+        <div class="cycle">
+          <div>
+            <span class="cycle-year" v-text="year">2026</span>
+            <span class="cycle-label" v-text="cycleLabel">Entry round</span>
+          </div>
+          <button class="btn" @click="advance" :disabled="atEnd" v-text="btnText">Run the 2028 re-score</button>
+          <button class="btn ghost" @click="reset" v-show="step > 0">Reset</button>
+        </div>
+      </div>
+
+      <!-- desktop table -->
+      <table class="tier">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Productivity</th>
+            <th>Export growth</th>
+            <th>Wages paid</th>
+            <th>Staff training</th>
+            <th class="num">Score</th>
+            <th class="num">Standing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="f in ranked" :key="f.name" :class="{dropped: !f.inTier}">
+            <td class="firm">
+              <span v-text="f.name">Company</span>
+              <small v-text="f.kind">sector</small>
+            </td>
+            <td v-for="(v,i) in f.scores" :key="i">
+              <span class="bar" :class="f.dir"><i :style="{width: v + '%'}"></i></span>
+            </td>
+            <td class="num">
+              <span class="score" v-text="f.total">0</span>
+              <span class="delta" :class="f.dir" v-text="f.deltaText"></span>
+            </td>
+            <td class="num"><span class="status" :class="f.cls" v-text="f.status">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- mobile cards -->
+      <div class="cards">
+        <div class="card" v-for="f in ranked" :key="'c-'+f.name" :class="{dropped: !f.inTier}">
+          <div class="card-top">
+            <span class="firm"><span v-text="f.name"></span><small v-text="f.kind"></small></span>
+            <span class="score" v-text="f.total"></span>
+            <span class="status" :class="f.cls" v-text="f.status"></span>
+          </div>
+          <div class="card-measures">
+            <div v-for="(v,i) in f.scores" :key="i">
+              <span v-text="labels[i]"></span>
+              <span class="bar" :class="f.dir"><i :style="{width: v + '%'}"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="board-foot">Illustrative only. These companies are invented for this project and the numbers are made up to show how the mechanism would behave — a bank losing its place, a five-person software firm earning one, and a firm that fell out climbing back in.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== POLICY 1 ====================== -->
+<section class="policy" id="economy">
+  <div class="wrap">
+    <div class="policy-head">
+      <p class="policy-index">Policy one of two — Economy</p>
+      <h2>The Paragon Tier: earning your place in New Zealand's economy</h2>
+      <p class="policy-lede">A government-recognised top tier of New Zealand businesses that companies must compete to enter, and can be removed from.</p>
+    </div>
+
+    <div class="row">
+      <div class="row-label">Background to the issue</div>
+      <div class="row-body">
+        <p>New Zealand's economy is growing again, but only at around 1–2% in 2026, and almost all of that comes from lower interest rates and migration rather than businesses actually getting better at what they do. Politicians need to address this because a country cannot keep raising living standards by simply adding more people — each worker has to produce more value.</p>
+        <p>Citizens should care because productivity is what pays for wages, hospitals and schools. When productivity stalls, wages stall with it, and every New Zealander feels it in their pay packet and in the quality of public services they receive.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-label">Statement of the problem</div>
+      <div class="row-body">
+        <p>The specific problem is that New Zealand businesses have no real reason to improve. Once a company receives a government grant, subsidy or contract, it usually keeps it regardless of how well it performs afterwards. This has been caused by decades of support schemes that are handed out but almost never reviewed, and by cheap borrowing after the OCR fell from 5.5% to 2.25%, which flows into property rather than productive business.</p>
+        <p>The evidence that Aotearoa needs change is clear: the OECD's 2026 survey of New Zealand explicitly warned that our productivity growth is weak and that migration is not a substitute for it. This affects all of New Zealand, but hits workers hardest — if firms don't produce more value per worker, employers have no room to raise wages, and young people entering the workforce inherit an economy that has stopped moving forward.</p>
+
+        <div class="figs">
+          <div class="fig">
+            <b>2.25%</b>
+            <span>Official Cash Rate, down from 5.5%. Cheap credit, but it follows property.</span>
+            <a href="https://www.rbnz.govt.nz/news-and-events/news/2026/05/ocr-held-at-2-25-percent" target="_blank" rel="noopener">RBNZ, May 2026</a>
+          </div>
+          <div class="fig">
+            <b>5%+</b>
+            <span>Unemployment, still weighing on economic momentum.</span>
+            <a href="https://www.oecd.org/en/publications/oecd-economic-surveys-new-zealand-2026_3ec5de98-en.html" target="_blank" rel="noopener">OECD Survey 2026</a>
+          </div>
+          <div class="fig">
+            <b>$1.67b</b>
+            <span>Estimated annual cost of Investment Boost — with no performance test attached.</span>
+            <a href="https://kpmg.com/nz/en/insights/tax/investment-boost.html" target="_blank" rel="noopener">KPMG / Budget 2025</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-label">What the current government does</div>
+      <div class="row-body">
+        <p>The current government's main economic tool is the Investment Boost tax break, introduced by the National-led coalition, which gives businesses a deduction for investment spending. The problem is that it rewards any spending at all, with no test afterwards to check whether the business actually became more productive — a firm can claim it and change nothing.</p>
+        <p>The Reserve Bank has also cut the OCR to 2.25%, but monetary policy is a short-term cyclical tool and cannot fix a structural problem; historically that cheap credit has gone into housing rather than into exporting businesses. The OECD has recommended structural reforms such as easing foreign investment rules and strengthening competition, but these remain recommendations only, with no law, deadline or accountability attached.</p>
+        <p>Across all of these, the same flaw repeats: support is given out, and nobody ever checks what happened next.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-label">Our policy</div>
+      <div class="row-body">
+        <p>The Paragon Alliance will create <strong>the Paragon Tier</strong> — a government-recognised top tier of New Zealand businesses that companies must compete to enter and can be removed from. Companies will be scored by an independent body on four measures:</p>
+
+        <ul class="measures">
+          <li><b>Productivity</b><span>Value produced per worker, measured year on year.</span></li>
+          <li><b>Export growth</b><span>Earnings brought in from outside New Zealand.</span></li>
+          <li><b>Wages paid</b><span>What the firm actually pays its staff.</span></li>
+          <li><b>Staff training</b><span>Skills invested in the existing workforce.</span></li>
+        </ul>
+
+        <p style="margin-top:1.2em">Those who make the Tier receive real advantages — priority access to government contracts, faster consenting and permits, and a reduced company tax rate for as long as they hold their place. Crucially, membership is not permanent: every company is re-scored every two years, and any firm whose numbers fall is removed, no matter how large or long-established it is. All scores are published publicly, so customers, investors and workers can see exactly who is performing. Any business can apply at any time, and the entry test is identical for a five-person startup and a major bank.</p>
+        <p>This solves the problem better than current policy because it attaches a consequence to failure, which no existing scheme does. The benefits are that government support finally flows to firms that deliver, businesses gain a permanent reason to keep improving, and workers get public information about which employers are worth working for. Society would begin to see change within two to three years, when the first re-scoring round removes underperforming firms and the public list starts to shift; the productivity and wage effects would follow over roughly five to ten years.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-label">Obstacles, and how we handle them</div>
+      <div class="row-body">
+        <p>There are real obstacles, and we would rather name them than pretend they don't exist.</p>
+        <div class="risks">
+          <div class="risk">
+            <div><p class="risk-h">The obstacle</p><p>Large established companies will resist a system that can strip their status.</p></div>
+            <div class="risk-m"><p class="risk-h">Our response</p><p>The scoring body is fully independent and legally protected from political pressure, so size and lobbying cannot buy a place.</p></div>
+          </div>
+          <div class="risk">
+            <div><p class="risk-h">The obstacle</p><p>Smaller businesses may argue the scoring favours firms who can afford good reporting.</p></div>
+            <div class="risk-m"><p class="risk-h">Our response</p><p>Free reporting support for small businesses, so the test measures performance rather than paperwork.</p></div>
+          </div>
+          <div class="risk">
+            <div><p class="risk-h">The obstacle</p><p>If we choose the wrong measures, companies will game the numbers instead of actually improving.</p></div>
+            <div class="risk-m"><p class="risk-h">Our response</p><p>Scoring criteria are published openly and reviewed after the first cycle, so gaming can be identified and closed off.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conclusion">
+      <p>New Zealand's economy is not short of money — it is short of reasons to improve. Every current policy hands out support and then stops paying attention. The Paragon Tier changes that by making excellence something you have to earn again every two years, with public scores, real rewards, and real consequences.</p>
+      <p>If you believe that support should follow performance rather than reputation, and that your wages should rise because your employer is actually getting better, then vote for the Paragon Alliance. We are not asking you to trust businesses — we are asking you to make them prove it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== POLICY 2 ====================== -->
+<section class="policy" id="housing">
+  <div class="wrap">
+    <div class="policy-head">
+      <p class="policy-index">Policy two of two — Housing</p>
+      <h2>Sponsored Housing Districts: building homes New Zealanders can actually afford</h2>
+      <p class="policy-lede">Companies fund and build whole districts, including the infrastructure. Affordability is written into a binding contract, and it is reviewed every three years.</p>
+    </div>
+
+    <div class="row">
+      <div class="row-label">Background to the issue</div>
+      <div class="row-body">
+        <p>Housing in New Zealand has been unaffordable relative to income for well over a decade, and the situation is not improving fast enough. Politicians must address this because housing is the single largest cost most households face, and it sits underneath almost every other social problem — health, education and poverty all worsen when families cannot secure a stable home.</p>
+        <p>Citizens should be concerned because the social housing waitlist has exceeded 20,000 applicants while the government's own housing agency delivers only around 1,500 new builds a year. At that rate, the gap does not close — it widens every single year.</p>
+
+        <div class="figs">
+          <div class="fig">
+            <b>20,000+</b>
+            <span>Applicants on the social housing waitlist.</span>
+            <a href="https://www.interest.co.nz/public-policy/131771/government%E2%80%99s-plan-cut-k%C4%81inga-ora%E2%80%99s-debt-18-billion-will-halt-construction-new" target="_blank" rel="noopener">interest.co.nz</a>
+          </div>
+          <div class="fig">
+            <b>1,500</b>
+            <span>New Kāinga Ora homes a year under the Turnaround Plan.</span>
+            <a href="https://www.1news.co.nz/2025/02/04/govt-outlines-turnaround-plan-for-underperforming-kainga-ora" target="_blank" rel="noopener">1News</a>
+          </div>
+          <div class="fig">
+            <b>$24.8b</b>
+            <span>Kāinga Ora debt as forecast for 2026/27 in its 2023 board-approved budget.</span>
+            <a href="https://www.national.org.nz/news/20260212-hon-chris-bishop-kainga-ora-turnaround-plan-is-working" target="_blank" rel="noopener">Minister's release</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-label">Statement of the problem</div>
+      <div class="row-body">
+        <p>The specific problem is that not enough houses are being built, and the ones that are built are not affordable. This has been caused by two things working together: the government has relied on one agency, Kāinga Ora, which has proven it cannot build at the scale required, and private developers have no commercial reason to build affordable housing because it is simply less profitable than building for the top of the market.</p>
+        <p>The evidence is stark — Kāinga Ora's debt was forecast to reach $24.8 billion by 2026/27, an independent review found the agency financially unviable without major change, and the waitlist continues to sit above 20,000. This affects renters, families in emergency and motel accommodation, and young New Zealanders who cannot buy a first home. The consequence is a country where wealth stays concentrated in the generation that already owns property, and where the next generation rents indefinitely.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-label">What the current government does</div>
+      <div class="row-body">
+        <p>The National-led coalition's Kāinga Ora Turnaround Plan focuses on reducing the agency's debt and bringing build costs down to market rate. The issue is that it is a cost-control plan, not a building plan — its target output remains around 1,500 new builds a year, nowhere near the scale of the waitlist.</p>
+        <p>The coalition's Going for Housing Growth programme frees up land and improves infrastructure financing, and the enabling legislation passed in July 2026, but councils will not receive their first incentive payments until April 2027, meaning years will pass before it produces a single completed home.</p>
+        <p>Budget 2026 also raised the Minimum Income-Related Rent contribution from 25% to 30% of income for social housing tenants. That change may make the support system fairer between renters, but it does not add one house — it simply shifts more of the cost onto the people least able to carry it.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-label">Our policy</div>
+      <div class="row-body">
+        <p>The Paragon Alliance will introduce <strong>Sponsored Housing Districts</strong>. Under this policy, companies will be able to fund and build entire residential districts, including the infrastructure that goes with them — roads, water, and power connections — rather than leaving councils and Kāinga Ora to carry that cost alone. In return, sponsors receive naming rights over the district and a reduced company tax rate for as long as they maintain it to standard.</p>
+        <p>In exchange, a fixed share of every sponsored district must be sold or rented at below-market rates, and this is written directly into a binding sponsorship agreement rather than left to goodwill. Every sponsorship is reviewed every three years: if maintenance slips or the affordable share is not honoured, the tax reduction ends and the naming rights are stripped. Alongside this, Kāinga Ora will stop trying to be a construction company and become a tenancy manager, focusing on supporting tenants — the work it is genuinely good at.</p>
+
+        <!-- Interactive: affordability distribution -->
+        <div id="district-app" class="district" v-cloak>
+          <div class="district-head">
+            <h4>How the affordable share is placed</h4>
+            <div class="controls">
+              <label>Affordable share
+                <input type="range" min="15" max="60" step="5" v-model.number="share" aria-label="Affordable share of homes">
+                <b v-text="share + '%'">30%</b>
+              </label>
+              <div class="seg" role="group" aria-label="Placement method">
+                <button :class="{on: mode==='even'}" @click="mode='even'">Distributed</button>
+                <button :class="{on: mode==='block'}" @click="mode='block'">Clustered</button>
+              </div>
+            </div>
+          </div>
+          <div class="plots" aria-hidden="true">
+            <div class="plot" v-for="(p,i) in plots" :key="i" :class="{aff:p}"></div>
+          </div>
+          <div class="legend">
+            <span><i class="aff"></i><span v-text="affCount + ' homes at below-market rates'">homes below market</span></span>
+            <span><i></i><span v-text="(60 - affCount) + ' homes at market rates'">market homes</span></span>
+          </div>
+          <p class="verdict" v-text="verdict"></p>
+        </div>
+
+        <p style="margin-top:1.4em">This solves the problem better than current policy because it brings in private capital at a scale no single Crown agency can match, while locking affordability into a contract instead of hoping the market delivers it. The benefits are more homes built per year, infrastructure funded upfront rather than stalling councils, and a legally enforceable affordability guarantee. Society would begin to see the first completed sponsored districts within three to four years, given consenting and construction time, with a measurable effect on the waitlist and on price-to-income ratios by around year five.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row-label">Obstacles, and how we handle them</div>
+      <div class="row-body">
+        <p>We are honest about the downsides.</p>
+        <div class="risks">
+          <div class="risk">
+            <div><p class="risk-h">The obstacle</p><p>Many New Zealanders will be uncomfortable with companies naming suburbs.</p></div>
+            <div class="risk-m"><p class="risk-h">Our response</p><p>Naming is capped at a single discreet marker. No corporate branding throughout a district.</p></div>
+          </div>
+          <div class="risk">
+            <div><p class="risk-h">The obstacle</p><p>A real risk of creating visibly "branded" low-income neighbourhoods.</p></div>
+            <div class="risk-m"><p class="risk-h">Our response</p><p>Affordable homes must be distributed evenly across each development, never clustered in one section.</p></div>
+          </div>
+          <div class="risk">
+            <div><p class="risk-h">The obstacle</p><p>A sponsor could go bankrupt part-way through a build.</p></div>
+            <div class="risk-m"><p class="risk-h">Our response</p><p>Sponsors must hold a completion bond so the Crown can finish any abandoned project.</p></div>
+          </div>
+          <div class="risk">
+            <div><p class="risk-h">The obstacle</p><p>Councils may resist local planning being shaped by whoever is paying.</p></div>
+            <div class="risk-m"><p class="risk-h">Our response</p><p>Councils get a binding veto over which sites are eligible for sponsorship in the first place.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conclusion">
+      <p>New Zealand does not have a housing plan — it has a housing agency that cannot keep up and a set of reforms that will not reach families for years. Sponsored Housing Districts bring in the capital, the speed and the scale that one government agency cannot provide, and it locks affordability into a contract with real consequences for anyone who breaks it.</p>
+      <p>We would rather be honest about the trade-offs than promise you a solution that arrives in 2030. If you want homes built in years rather than decades, and you want affordability guaranteed in writing rather than hoped for, vote for the Paragon Alliance. We build, or we lose the contract — that is the standard we hold ourselves to as well.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== SOURCES ====================== -->
+<section class="sources" id="sources">
+  <div class="wrap">
+    <div class="policy-head">
+      <p class="policy-index">Where the numbers came from</p>
+      <h2>Sources</h2>
+      <p class="policy-lede">Every figure quoted above links to a live public source. Checked 14 September 2026.</p>
+    </div>
+
+    <ol class="refs">
+      <li>
+        <div>
+          <a href="https://www.oecd.org/en/publications/oecd-economic-surveys-new-zealand-2026_3ec5de98-en.html" target="_blank" rel="noopener">OECD Economic Surveys: New Zealand 2026</a>
+          <span>Published 7 May 2026. The survey describes an economy in the early stages of a cyclical recovery, with subdued net migration, unemployment above 5% and high electricity and transport costs weighing on momentum.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="https://www.rbnz.govt.nz/news-and-events/news/2026/05/ocr-held-at-2-25-percent" target="_blank" rel="noopener">Reserve Bank of New Zealand — OCR held at 2.25%</a>
+          <span>May 2026 Monetary Policy Statement. Confirms the Official Cash Rate at 2.25% and annual CPI inflation of 3.1% in the March 2026 quarter.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="https://budget.govt.nz/budget/pdfs/releases/l25a-factsheet-investment-boost.pdf" target="_blank" rel="noopener">Treasury — Investment Boost factsheet, Budget 2025</a>
+          <span>The 20% upfront deduction on new assets purchased from 22 May 2025. The factsheet sets out the expected GDP and wage effects but no post-investment performance test.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="https://kpmg.com/nz/en/insights/tax/investment-boost.html" target="_blank" rel="noopener">KPMG New Zealand — Investment Boost analysis</a>
+          <span>Independent commentary putting the cost at roughly $1.67 billion a year, against forecast gains of 1% GDP and 1.5% wages over twenty years.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="https://www.1news.co.nz/2025/02/04/govt-outlines-turnaround-plan-for-underperforming-kainga-ora" target="_blank" rel="noopener">1News — Government outlines Turnaround Plan for Kāinga Ora</a>
+          <span>Sets out roughly 1,500 newly built homes and 400 retrofits a year, offset by around 900 sales, from 2026/27 onwards.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="https://www.interest.co.nz/public-policy/131771/government%E2%80%99s-plan-cut-k%C4%81inga-ora%E2%80%99s-debt-18-billion-will-halt-construction-new" target="_blank" rel="noopener">interest.co.nz — Debt cut of $1.8 billion halts net new construction</a>
+          <span>Analysis of the Cabinet paper: 1,500 new homes fully offset by demolitions and sales, against a waitlist above 20,000.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="https://www.national.org.nz/news/20260212-hon-chris-bishop-kainga-ora-turnaround-plan-is-working" target="_blank" rel="noopener">Hon Chris Bishop — one year on from the Turnaround Plan (Feb 2026)</a>
+          <span>Confirms the $24.8 billion debt forecast for 2026/27 from the 2023 board-approved budget, and the Sir Bill English review findings.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="https://www.hud.govt.nz/news/budget-2026-for-the-housing-and-urban-system" target="_blank" rel="noopener">HUD — Budget 2026 for the housing and urban system</a>
+          <span>The Incentives for Growth Fund: $400 million over four years in tagged contingency, with payments expected to commence from 1 April 2027.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="https://www.msd.govt.nz/about-msd-and-our-work/newsroom/budget/2026/factsheets/increasing-the-minimum-housing-cost-contribution.html" target="_blank" rel="noopener">MSD — Increasing the minimum housing cost contribution (Budget 2026)</a>
+          <span>Lifts the minimum Income-Related Rent contribution from 25% to 30% of income from 1 April 2027, phased in over twelve months, saving $387.5m.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="https://environment.govt.nz/what-government-is-doing/areas-of-work/rma/rmreform/going-for-housing-growth/" target="_blank" rel="noopener">Ministry for the Environment — Going for Housing Growth</a>
+          <span>The three pillars: freeing up land, infrastructure funding and financing, and incentives for councils and communities.</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>This is a school assignment.</strong> The Paragon Alliance is a fictional political party invented for a classroom exercise. It is not a registered party, it is not contesting any election, and nothing here is a real policy or a real promise.</p>
+    <p>The companies shown in the Tier register are invented and their scores are made up. The policies of other parties are described as accurately as possible, with links to the original sources above so you can check them yourself.</p>
+  </div>
+</footer>
+
+</main>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script>
+(function () {
+  if (typeof Vue === 'undefined') {
+    document.querySelectorAll('[v-cloak]').forEach(function (el) { el.remove(); });
+    return;
+  }
+  var createApp = Vue.createApp;
+
+  /* ---------------- Tier board ---------------- */
+  // Four measures per firm: productivity, export growth, wages, staff training.
+  // Cycles are authored rather than random so the story is the same every time.
+  var FIRMS = [
+    { name: 'Kōwhai Robotics',          kind: 'Manufacturing · Hamilton',   c: [[82,79,74,88],[86,85,79,90],[88,90,83,91]] },
+    { name: 'Ōtira Medical Devices',    kind: 'Medtech · Christchurch',     c: [[76,84,71,69],[79,86,74,72],[74,78,73,68]] },
+    { name: 'Southern Cross Dairy',     kind: 'Primary industry · Waikato', c: [[71,88,58,54],[69,84,59,57],[58,71,54,49]] },
+    { name: 'Harbourline Bank',         kind: 'Banking · Auckland',         c: [[68,52,79,64],[59,44,72,51],[66,58,74,69]] },
+    { name: 'Tasman Freight Group',     kind: 'Logistics · Nelson',         c: [[64,60,63,59],[67,64,66,63],[63,59,64,58]] },
+    { name: 'Aro Valley Software',      kind: 'Software · Wellington',      c: [[58,49,66,62],[72,63,70,74],[79,72,76,80]] },
+    { name: 'Rimu Timber Holdings',     kind: 'Forestry · Gisborne',        c: [[55,41,52,48],[58,46,55,53],[64,57,61,60]] }
+  ];
+  var THRESHOLD = 60;
+  var YEARS = [2026, 2028, 2030];
+  var LABELS = ['Productivity', 'Exports', 'Wages', 'Training'];
+
+  function avg(a) { return Math.round((a[0] + a[1] + a[2] + a[3]) / 4 * 10) / 10; }
+
+  createApp({
+    data: function () {
+      return { step: 0, labels: LABELS };
+    },
+    computed: {
+      year: function () { return YEARS[this.step]; },
+      atEnd: function () { return this.step >= YEARS.length - 1; },
+      cycleLabel: function () { return this.step === 0 ? 'Entry round' : 'Re-score, cycle ' + this.step; },
+      btnText: function () {
+        return this.atEnd ? 'Register up to date' : 'Run the ' + YEARS[this.step + 1] + ' re-score';
+      },
+      ranked: function () {
+        var step = this.step;
+        var rows = FIRMS.map(function (f) {
+          var now = f.c[step];
+          var prev = step > 0 ? f.c[step - 1] : null;
+          var total = avg(now);
+          var prevTotal = prev ? avg(prev) : null;
+          var inTier = total >= THRESHOLD;
+          var wasIn = prev ? prevTotal >= THRESHOLD : null;
+
+          var status, cls;
+          if (step === 0) {
+            status = inTier ? 'In the Tier' : 'Not admitted';
+            cls = inTier ? 's-hold' : 's-none';
+          } else if (inTier && wasIn) {
+            status = 'Holds place'; cls = 's-hold';
+          } else if (inTier && !wasIn) {
+            status = 'Admitted'; cls = 's-in';
+          } else if (!inTier && wasIn) {
+            status = 'Removed'; cls = 's-out';
+          } else {
+            status = 'Not in Tier'; cls = 's-none';
+          }
+
+          var dir = '', deltaText = '';
+          if (prevTotal !== null) {
+            var d = Math.round((total - prevTotal) * 10) / 10;
+            if (d > 0) { dir = 'up'; deltaText = '+' + d; }
+            else if (d < 0) { dir = 'down'; deltaText = String(d); }
+            else { deltaText = '0'; }
+          }
+
+          return {
+            name: f.name, kind: f.kind, scores: now,
+            total: total.toFixed(1), sort: total,
+            inTier: inTier, status: status, cls: cls,
+            dir: dir, deltaText: deltaText
+          };
+        });
+        return rows.sort(function (a, b) { return b.sort - a.sort; });
+      }
+    },
+    methods: {
+      advance: function () { if (!this.atEnd) this.step++; },
+      reset: function () { this.step = 0; }
+    }
+  }).mount('#board-app');
+
+  /* ---------------- Sponsored district ---------------- */
+  var TOTAL = 60;
+  createApp({
+    data: function () { return { share: 30, mode: 'even' }; },
+    computed: {
+      affCount: function () { return Math.round(TOTAL * this.share / 100); },
+      plots: function () {
+        var n = this.affCount, out = [], i;
+        var marked = {};
+        if (this.mode === 'block') {
+          for (i = 0; i < n; i++) marked[i] = true;         // all in one corner
+        } else {
+          var stride = TOTAL / n;
+          for (i = 0; i < n; i++) marked[Math.floor(i * stride + stride / 2)] = true;
+        }
+        for (i = 0; i < TOTAL; i++) out.push(!!marked[i]);
+        return out;
+      },
+      verdict: function () {
+        if (this.mode === 'block') {
+          return 'Clustered placement is what produces a visibly separated low-income corner — the exact outcome people fear from this policy. Our sponsorship agreements forbid it.';
+        }
+        return 'Distributed placement means the ' + this.affCount + ' below-market homes sit among the other ' +
+               (TOTAL - this.affCount) + ', on the same streets and to the same build standard. A sponsor that fails this on review loses the tax reduction and the naming rights.';
+      }
+    }
+  }).mount('#district-app');
+})();
+</script>
+</body>
+</html>
