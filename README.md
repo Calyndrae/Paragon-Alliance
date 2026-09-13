@@ -37,8 +37,19 @@ python3 -m http.server 8000
 
 ### Publishing to GitHub Pages
 
-Settings → Pages → *Deploy from a branch* → select the branch and `/ (root)`.
-GitHub serves `index.html` automatically.
+Already configured. Pages is set to build from **GitHub Actions**, and
+`.github/workflows/pages.yml` publishes on every push to `main`:
+
+<https://calyndrae.github.io/Paragon-Alliance/>
+
+The job copies `index.html` and `assets/` into `_site` and uploads that, so the
+README, the workflow and the git metadata are not served from the site root.
+
+Note that the workflow does **not** pass `enablement: true` to
+`actions/configure-pages`. Creating a Pages site is admin-gated and a workflow's
+`GITHUB_TOKEN` cannot do it — it gets `Resource not accessible by integration`
+even with `permissions: pages: write`. Enabling Pages is a one-time manual step;
+the workflow only reads the existing configuration.
 
 ## Implementation notes
 
