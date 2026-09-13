@@ -25,11 +25,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # enablement:true switches Pages on for the repo on the first run,
-      # so this does not have to be done by hand in Settings.
+      # No enablement:true here. Creating a Pages site is admin-gated and the
+      # workflow's GITHUB_TOKEN cannot do it ("Resource not accessible by
+      # integration"), so Pages must be switched on once in Settings with
+      # "GitHub Actions" as the source. After that this step just reads the
+      # config and every push to main deploys.
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       # Publish only the page and its assets — not the README, the workflow
       # or the git metadata.
