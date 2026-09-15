@@ -17,6 +17,10 @@ A single-page site setting out two policies for a fictional NZ party:
 | 01 | **The Paragon Tier** — a government-recognised top tier of businesses that firms must compete to enter and can be removed from | Economy |
 | 02 | **Sponsored Housing Districts** — companies fund and build whole districts, with affordability locked into a binding contract | Housing |
 
+Followed by a short section 3 — the party's vision statement and a coalition statement
+of intent naming one real party, The Opportunity Party, as the partner we would go to
+first, with the reasons and the points of disagreement.
+
 ## Contents
 
 ```
@@ -81,5 +85,6 @@ the workflow only reads the existing configuration.
 
 ## Sources
 
-All ten sources are listed at the bottom of the page with links, and were checked on
-14 September 2026.
+All twelve sources are listed at the bottom of the page with links. The ten policy
+sources were checked on 14 September 2026; the two Opportunity Party sources cited in
+section 3 were checked on 15 September 2026.
